@@ -1,0 +1,542 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21673,        534]
+NotebookOptionsPosition[     18319,        478]
+NotebookOutlinePosition[     19133,        505]
+CellTagsIndexPosition[     19090,        502]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["< Translating Human Dialogue into Music >", "Title",
+ CellChangeTimes->{{3.770055572438499*^9, 3.7700555729498453`*^9}, {
+   3.770055604008165*^9, 3.7700556066618843`*^9}, 3.771757870321978*^9, {
+   3.7717579313140893`*^9, 3.771757948540987*^9}},
+ TextJustification->
+  0.5,ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
+
+Cell["< Jae Yoon (Jamie) Lim >", "Text",
+ CellChangeTimes->{{3.549624168509506*^9, 3.549624171985794*^9}, {
+  3.549624508772977*^9, 3.549624510775043*^9}, {3.5498187159613867`*^9, 
+  3.5498187170087957`*^9}, {3.549819049020514*^9, 3.5498190533440437`*^9}, {
+  3.77005561844785*^9, 3.7700556489651537`*^9}, {3.7717579821370926`*^9, 
+  3.771757990131748*^9}},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
+fa93ec9acae9"],
+
+Cell["< Christin Pasquel>", "Text",
+ CellChangeTimes->{{3.549624515773694*^9, 3.5496245246892014`*^9}, {
+  3.5498187208956137`*^9, 3.5498187221413403`*^9}, {3.5498190558319674`*^9, 
+  3.54981906151682*^9}, {3.770055624686027*^9, 3.770055659820487*^9}, {
+  3.7717579932503595`*^9, 3.7717579991114497`*^9}, {3.771758124511074*^9, 
+  3.771758125048631*^9}},ExpressionUUID->"b70c649b-a958-4202-9f22-\
+238ea1f9c7d4"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["    Introduction",
+ FontSize->22]], "Subsection",
+ CellChangeTimes->{{3.7717582069796305`*^9, 3.7717582098270173`*^9}, {
+  3.771759473173645*^9, 3.771759476343177*^9}, {3.771841458903998*^9, 
+  3.7718414607103195`*^9}, {3.7718644913112154`*^9, 
+  3.771864499849476*^9}},ExpressionUUID->"73e667a6-2cb6-4644-8033-\
+3ac8978ced60"],
+
+Cell["\<\
+The first operation that has to be done is collecting the data of pitch the \
+speech is giving. Convert them into a simple chart where the received speech \
+turns into a pitch data, using PitchRecognize[] function.\
+\>", "Text",
+ CellChangeTimes->{{3.7718461130297527`*^9, 3.77184620135328*^9}, {
+  3.7718498424051228`*^9, 3.771849866885638*^9}, {3.771858568054252*^9, 
+  3.771858568250763*^9}, {3.7718586115786753`*^9, 3.7718586169623156`*^9}, {
+  3.7718586475943394`*^9, 3.771858648561762*^9}, {3.771864531442546*^9, 
+  3.7718645543374243`*^9}},
+ FormatType->"TextForm",
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"5f3632d4-6805-488c-ba83-034b590365aa"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"davecomedy", "=", 
+   TagBox[
+    DynamicModuleBox[{Audio`AudioObjects`audio$$ = HoldComplete[
+      Audio[
+      "C:\\Users\\limja\\OneDrive\\\:bc14\:d0d5 \:d654\:ba74\\dave.mp3", 
+       "Real32", Appearance -> Automatic, AudioOutputDevice -> Automatic, 
+       MetaInformation -> Association["ID3v2" -> Association["UserText" -> {
+             Association[
+             "Description" -> "major_brand", "Values" -> {"mp42"}], 
+             Association["Description" -> "minor_version", "Values" -> {"0"}], 
+             Association[
+             "Description" -> "compatible_brands", "Values" -> {"isommp42"}]},
+            "EncodingSettings" -> "Lavf58.27.103"]], SampleRate -> 44100, 
+       SoundVolume -> 1]], Audio`AudioObjects`audioID$$, 
+     Audio`AudioObjects`buttonState$$ = "Basic", 
+     Audio`AudioObjects`newAudio$$}, 
+     DynamicBox[ToBoxes[
+       Audio`AudioGUI[
+       2, Audio`AudioObjects`audioID$$, Audio`AudioObjects`buttonState$$, 
+        Audio`AudioObjects`audio$$], StandardForm],
+      ImageSizeCache->{136., {42., 48.}},
+      TrackedSymbols:>{}],
+     Deinitialization:>(Clear[Audio`AudioObjects`newAudio$$]; 
+      Audio`ClearRef[Audio`AudioObjects`audioID$$]),
+     DynamicModuleValues:>{},
+     Initialization:>({
+       Audio`AudioObjects`newAudio$$, Audio`AudioObjects`audioID$$} = 
+      Audio`CheckID[
+       Audio`AudioObjects`audio$$, Audio`AudioObjects`audioID$$, 
+        Audio`AudioObjects`newAudio$$]),
+     UnsavedVariables:>{
+      Audio`AudioObjects`audioID$$, Audio`AudioObjects`newAudio$$}],
+    Audio`AudioBox["AudioClass" -> "AudioFile"],
+    Editable->False,
+    Selectable->False]}], ";"}]], "Code",
+ CellChangeTimes->{{3.7718497976039877`*^9, 3.771849800531133*^9}, {
+   3.771858620513777*^9, 3.7718586213595533`*^9}, 3.771858651455046*^9, {
+   3.77186265716432*^9, 3.7718626608303366`*^9}},
+ CellLabel->
+  "In[205]:=",ExpressionUUID->"48d401e8-f2db-47e2-9ff2-904f1b749965"],
+
+Cell["\<\
+This is an audio file of Dave Chappelle\[CloseCurlyQuote]s standup comedy \
+video. This is going to be used as an example through the process.\
+\>", "Text",
+ CellChangeTimes->{{3.7718626673296623`*^9, 3.771862724878024*^9}, {
+  3.771863140968858*^9, 3.7718631592103434`*^9}},
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"a3649d5e-dec3-40d5-b570-8470029b0fa5"],
+
+Cell["\<\
+After the process, take the audio and generate the pitch data.\
+\>", "Text",
+ CellChangeTimes->{{3.771863175256749*^9, 3.7718631872892632`*^9}},
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"cbfbd36b-f402-40ff-bee8-dd0fa6d7613b"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"davepitchdata", "=", 
+    RowBox[{"PitchRecognize", "[", 
+     RowBox[{"davecomedy", ",", "\"\<QuantizedMIDI\>\""}], "]"}]}], ";"}],
+  Background->GrayLevel[0.85]]], "Input",
+ CellChangeTimes->{{3.7718586237989984`*^9, 3.7718586252670965`*^9}, 
+   3.7718633373665314`*^9, 3.771863395817686*^9},
+ CellLabel->
+  "In[207]:=",ExpressionUUID->"0469d060-ba0b-4e33-ba8d-cb9bd9c1669c"],
+
+Cell[TextData[StyleBox["Organizing the data",
+ FontSize->18,
+ FontColor->RGBColor[1, 0.5, 0]]], "Text",
+ CellChangeTimes->{{3.7718498601626225`*^9, 
+  3.771849893300022*^9}},ExpressionUUID->"1e59fd50-227c-4b35-9713-\
+cea4c549f821"],
+
+Cell["\<\
+\t1) Duplicate Pitch Elimination
+
+During this process, all the duplicate pitches were deleted.\
+\>", "Text",
+ CellChangeTimes->{{3.771863675467406*^9, 3.7718636835962095`*^9}, {
+  3.7718637560200567`*^9, 3.771863758637745*^9}, {3.7718639556212316`*^9, 
+  3.7718639569432144`*^9}, {3.771864014798033*^9, 3.7718640153255057`*^9}},
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"d5212b8c-c6d3-4961-ba4d-84c9560f1fca"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"davepitchDataClean", "=", 
+   RowBox[{"DeleteCases", "[", 
+    RowBox[{
+     RowBox[{"davepitchdata", "[", "\"\<Values\>\"", "]"}], ",", 
+     RowBox[{"Missing", "[", "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7718638943817925`*^9, 3.7718638976265335`*^9}, {
+  3.7718639443326607`*^9, 3.771863985961399*^9}},
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"dc53ba35-e906-4462-9f22-68ccddfbe922"],
+
+Cell["\<\
+\t2) Putting the data into a MIDI range
+
+After the duplicate deletion, the pitch data was first shifted into the MIDI \
+note data range, which is from -64 through 64. This was done through using \
+Rescale[] function.\
+\>", "Text",
+ CellChangeTimes->{{3.7718498200808334`*^9, 3.7718498338599787`*^9}, {
+  3.771849949318143*^9, 3.771849972856185*^9}, {3.7718515164433527`*^9, 
+  3.7718515166248655`*^9}, {3.7718637694213486`*^9, 3.771863773227126*^9}, {
+  3.7718639929347525`*^9, 3.771864013328791*^9}},
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"73c905d8-4238-4ee5-bde2-c98b1656dc62"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"daveroundednote", "=", 
+   RowBox[{"Round", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Rescale", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"MinMax", "[", "davepitchDataClean", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "60"}], ",", "48"}], "}"}]}], "]"}], "&"}], "/@", 
+     "davepitchDataClean"}], "]"}]}], ";"}]], "Input",
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"1d3b1c3c-6af1-49ed-99a0-8cc328702cfa"],
+
+Cell["\<\
+\t3) Putting the data into a musical scale
+
+Before any further in the code to put the data in a scale, the musical scale \
+had to constructed. This was done through, first, creating all the modes in \
+string. Choose which mode you would like to pitch the MIDI notes into. Then, \
+depending on the mode\[CloseCurlyQuote]s, or the scale\[CloseCurlyQuote]s, \
+range, calling 0 the Middle C, the numbers or notes were assigned to each \
+mode. After, the rescaling method used in putting the pitch recognition data \
+into the MIDI range to have different octaves of modes as well.\
+\>", "Text",
+ CellChangeTimes->{{3.7718514918780203`*^9, 3.771851512862934*^9}, {
+  3.7718637771665707`*^9, 3.7718637872856307`*^9}, {3.7718640194637327`*^9, 
+  3.7718640314336915`*^9}, {3.771864246945488*^9, 3.771864270911036*^9}},
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"9dc8de07-f8a5-43ef-9971-45e961903e4f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"modes", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Ionian\>\"", ",", "\"\<Dorian\>\"", ",", "\"\<Phrygian\>\"", ",", 
+     "\"\<Lydian\>\"", ",", "\"\<MixoLydian\>\"", ",", "\"\<Aeolian\>\"", 
+     ",", "\"\<Locrian\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"modeSystemStructure", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<Ionian\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "2", ",", "4", ",", "5", ",", "7", ",", "9", ",", "11"}], 
+       "}"}]}], ",", 
+     RowBox[{"\"\<Dorian\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "2", ",", "3", ",", "5", ",", "7", ",", "9", ",", "10"}], 
+       "}"}]}], ",", 
+     RowBox[{"\"\<Phrygian\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "1", ",", "3", ",", "5", ",", "7", ",", "8", ",", "10"}], 
+       "}"}]}], ",", 
+     RowBox[{"\"\<Lydian\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "2", ",", "4", ",", "6", ",", "7", ",", "9", ",", "11"}], 
+       "}"}]}], ",", 
+     RowBox[{"\"\<MixoLydian\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "2", ",", "4", ",", "5", ",", "7", ",", "9", ",", "10"}], 
+       "}"}]}], ",", 
+     RowBox[{"\"\<Aeolian\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "2", ",", "3", ",", "5", ",", "7", ",", "8", ",", "10"}], 
+       "}"}]}], ",", 
+     RowBox[{"\"\<Locrian\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "1", ",", "3", ",", "5", ",", "6", ",", "8", ",", "10"}], 
+       "}"}]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"modeSystemC", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"#", "\[Rule]", " ", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"#", "/.", "modeSystemStructure"}], ")"}], "+", 
+          RowBox[{"12", "i"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "0", ",", "9"}], "}"}]}], "]"}]}], "&"}], ")"}], "/@",
+     "modes"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"RotateMode", "[", "mode_", "]"}], ":=", 
+  RowBox[{"MapThread", "[", 
+   RowBox[{"Rule", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"RotateLeft", "[", 
+       RowBox[{"modes", ",", 
+        RowBox[{"mode", "/.", 
+         RowBox[{"MapThread", "[", 
+          RowBox[{"Rule", ",", 
+           RowBox[{"{", 
+            RowBox[{"modes", ",", 
+             RowBox[{"Range", "[", 
+              RowBox[{"0", ",", "6"}], "]"}]}], "}"}]}], "]"}]}]}], "]"}], 
+      ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"mode", "/.", "modeSystemC"}], ")"}], "\[LeftDoubleBracket]", 
+       "1", "\[RightDoubleBracket]"}]}], "}"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"BuildScaleSystem", "[", 
+   RowBox[{"modeSystem_", ",", "mode_String"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Function", "[", 
+    RowBox[{"u", ",", "\[IndentingNewLine]", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"systemMode", "=", "u"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"u", "\[Rule]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"u", "/.", "modeSystem"}], ")"}], "+", 
+          RowBox[{"(", 
+           RowBox[{"u", "/.", 
+            RowBox[{"RotateMode", "[", "mode", "]"}]}], ")"}]}], ")"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], "/@", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"RotateMode", "[", "mode", "]"}], "\[LeftDoubleBracket]", 
+     RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}], 
+    ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"BuildScaleSystem", "[", 
+  RowBox[{"modeSystemC", ",", "\"\<MixoLydian\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.771864132823847*^9, 3.7718641332884417`*^9}},
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"416ece5a-8d2f-423b-ab3b-24c29c6543a5"],
+
+Cell["W/ Christian", "Text",
+ CellChangeTimes->{{3.771864136645417*^9, 3.7718641497513885`*^9}},
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"3950a9b8-2d9f-4ab5-b8e9-07b10642714f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LocrianScale", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Union", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "0", ",", "2", ",", "4", ",", "5", ",", "7", ",", "9", ",", "10"}], 
+          "}"}], "-", 
+         RowBox[{"12", "i"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "6"}], "}"}]}], "]"}], ",", 
+      RowBox[{"Take", "[", 
+       RowBox[{
+        RowBox[{"\"\<Locrian\>\"", "/.", 
+         RowBox[{"BuildScaleSystem", "[", 
+          RowBox[{"modeSystemC", ",", "\"\<Locrian\>\""}], "]"}]}], ",", 
+        "1"}], "]"}]}], "]"}], "]"}]}], ";"}]], "Input",
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"f1f02fa1-c5f8-4cc3-b7b6-e3b590acb762"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"davescalednote", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Nearest", "[", 
+      RowBox[{"LocrianScale", ",", "#"}], "]"}], "&"}], "/@", 
+    "daveroundednote"}]}], ";"}]], "Input",
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"7fc7f4a8-1eb2-4a34-8fd6-3cfaa01d33bf"],
+
+Cell["\<\
+\t4) Choosing the instrument and arrangement
+
+The instrument was employed by using an if statement within the Sound[] \
+function. I arranged the MIDI data for two separate instruments: Woodblock \
+and polysynthesizer. The woodblock was used for lower octave notes and the \
+polysynthesizer was used for upper octaves.\
+\>", "Text",
+ CellChangeTimes->{{3.771863790174076*^9, 3.771863796992829*^9}, 
+   3.7718638729351325`*^9, {3.771864037371109*^9, 3.7718640480934086`*^9}, {
+   3.771864289696951*^9, 3.771864292774148*^9}},
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"974c3031-c880-4689-9e84-511a4f0b060a"],
+
+Cell[BoxData[
+ RowBox[{"daveoutput", "=", 
+  RowBox[{"Sound", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"SoundNote", "[", 
+      RowBox[{"#", ",", "0.009", ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Mean", "[", "#", "]"}], "\[LessEqual]", " ", 
+          RowBox[{"-", "20"}]}], ",", "\"\<Harp\>\"", ",", "\"\<Organ\>\""}], 
+        "]"}]}], "]"}], "&"}], "/@", "davescalednote"}], "]"}]}]], "Input",
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"4bc66bdc-76d3-4b7e-a526-1147f54c6af4"],
+
+Cell["\t5) Hear the Final Product!", "Text",
+ CellChangeTimes->{{3.7718638753670945`*^9, 3.7718638926214375`*^9}},
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"99bb0706-48a4-4941-adb7-76df53d067ad"],
+
+Cell[BoxData[
+ StyleBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"https", ":"}], "//", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"soundcloud", ".", "com"}], "/", "jamie"}], "-", "lim", "-", 
+      RowBox[{"14", "/", "dave"}], "-", "chappelle", "-", "standup", "-", 
+      "comedy", "-", "converted", "-", "to", "-", "music"}]}], "Text"],
+   BaseStyle->"Hyperlink",
+   ButtonData->{
+     URL["https://soundcloud.com/jamie-lim-14/dave-chappelle-standup-comedy-\
+converted-to-music"], None},
+   ButtonNote->
+    "https://soundcloud.com/jamie-lim-14/dave-chappelle-standup-comedy-\
+converted-to-music"], "Text"]], "Input",
+ CellChangeTimes->{{3.7718643824382505`*^9, 3.7718643824402432`*^9}, 
+   3.7718797042492447`*^9},
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"fe9fbae2-deba-4b82-a505-6699b8a1bf5a"],
+
+Cell[TextData[StyleBox["Problems / Rooms for Improvements",
+ FontSize->18]], "Text",
+ CellChangeTimes->{{3.771864639609193*^9, 3.7718646653597283`*^9}},
+ FontColor->RGBColor[
+  1, 0.5, 0],ExpressionUUID->"19c68dce-8128-4fcc-a363-e1ba074e4eb3"],
+
+Cell["\<\
+There were some minor troubles during the process, such as putting the \
+quantified information of human speech in the MIDI number range and fitting \
+the quantified information into a specific scale. The MIDI note numbers \
+ranged from -64 through 64, with 128 keys, while the quantified numbers are \
+in the range of 100 through about 180.\
+\>", "Text",
+ CellChangeTimes->{{3.7718646812087736`*^9, 
+  3.7718646839434867`*^9}},ExpressionUUID->"14efc068-e37d-4fe2-bee6-\
+352d164e7897"],
+
+Cell[TextData[StyleBox["Main Results:",
+ FontSize->18,
+ FontColor->RGBColor[1, 0.5, 0]]], "Text",
+ CellChangeTimes->{
+  3.7718646942446404`*^9},ExpressionUUID->"9f840312-fe4a-4b9f-859b-\
+48361dc3435c"],
+
+Cell["\<\
+The bigger dynamic range there is in the dialogue' s volume, the louder and \
+the bigger dynamic range there was in the musical
+
+The translation into music can be set into different modes of music (Locrian, \
+Aeolian, Dorian, Ionian, Mixolydian, Lydian, Phrygian).\
+\>", "Text",
+ CellChangeTimes->{{3.771864700710653*^9, 
+  3.771864703107667*^9}},ExpressionUUID->"d0376ed7-329d-4785-85f7-\
+3b5d4c413ea6"],
+
+Cell[TextData[{
+ StyleBox["Future Work\n",
+  FontSize->18,
+  FontColor->RGBColor[1, 0.5, 0]],
+ "\nExploring alternate ways to translate dialogue into music, such as \
+incorporating velocity as a part of the file quantity.\n\nPutting all \
+translations into he same musical key and tempo\n\n"
+}], "Text",
+ CellChangeTimes->{{3.771864712580494*^9, 
+  3.771864722632921*^9}},ExpressionUUID->"50124e80-290c-4a49-b29f-\
+4d7e07624be2"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 976},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+DockedCells->{
+  Cell[
+   TextData[{
+     StyleBox["  WOLFRAM ", 
+      RGBColor[0.97, 0.83, 0.35], FontFamily -> "Source Sans Pro", FontWeight -> 
+      Bold, FontSize -> 40], 
+     StyleBox["SUMMER SCHOOL", 
+      GrayLevel[1], FontFamily -> "Source Sans Pro", FontSize -> 40], 
+     StyleBox[" 2019", 
+      RGBColor[0.97, 0.83, 0.35], FontFamily -> "Source Sans Pro", FontSize -> 
+      40]}], CellFrameMargins -> 10, Background -> 
+   RGBColor[0.12, 0.14, 0.15]]},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 335, 5, 96, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
+Cell[918, 29, 414, 6, 34, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
+Cell[1335, 37, 411, 6, 34, "Text",ExpressionUUID->"b70c649b-a958-4202-9f22-238ea1f9c7d4"],
+Cell[CellGroupData[{
+Cell[1771, 47, 351, 6, 56, "Subsection",ExpressionUUID->"73e667a6-2cb6-4644-8033-3ac8978ced60"],
+Cell[2125, 55, 678, 12, 50, "Text",ExpressionUUID->"5f3632d4-6805-488c-ba83-034b590365aa"],
+Cell[2806, 69, 1964, 41, 128, "Code",ExpressionUUID->"48d401e8-f2db-47e2-9ff2-904f1b749965"],
+Cell[4773, 112, 381, 7, 50, "Text",ExpressionUUID->"a3649d5e-dec3-40d5-b570-8470029b0fa5"],
+Cell[5157, 121, 250, 5, 50, "Text",ExpressionUUID->"cbfbd36b-f402-40ff-bee8-dd0fa6d7613b"],
+Cell[5410, 128, 425, 10, 28, "Input",ExpressionUUID->"0469d060-ba0b-4e33-ba8d-cb9bd9c1669c"],
+Cell[5838, 140, 231, 5, 38, "Text",ExpressionUUID->"1e59fd50-227c-4b35-9713-cea4c549f821"],
+Cell[6072, 147, 434, 9, 94, "Text",ExpressionUUID->"d5212b8c-c6d3-4961-ba4d-84c9560f1fca"],
+Cell[6509, 158, 445, 10, 44, "Input",ExpressionUUID->"dc53ba35-e906-4462-9f22-68ccddfbe922"],
+Cell[6957, 170, 607, 12, 94, "Text",ExpressionUUID->"73c905d8-4238-4ee5-bde2-c98b1656dc62"],
+Cell[7567, 184, 491, 14, 44, "Input",ExpressionUUID->"1d3b1c3c-6af1-49ed-99a0-8cc328702cfa"],
+Cell[8061, 200, 915, 15, 116, "Text",ExpressionUUID->"9dc8de07-f8a5-43ef-9971-45e961903e4f"],
+Cell[8979, 217, 4000, 111, 235, "Input",ExpressionUUID->"416ece5a-8d2f-423b-ab3b-24c29c6543a5"],
+Cell[12982, 330, 184, 3, 50, "Text",ExpressionUUID->"3950a9b8-2d9f-4ab5-b8e9-07b10642714f"],
+Cell[13169, 335, 804, 23, 44, "Input",ExpressionUUID->"f1f02fa1-c5f8-4cc3-b7b6-e3b590acb762"],
+Cell[13976, 360, 307, 9, 44, "Input",ExpressionUUID->"7fc7f4a8-1eb2-4a34-8fd6-3cfaa01d33bf"],
+Cell[14286, 371, 629, 12, 94, "Text",ExpressionUUID->"974c3031-c880-4689-9e84-511a4f0b060a"],
+Cell[14918, 385, 533, 14, 44, "Input",ExpressionUUID->"4bc66bdc-76d3-4b7e-a526-1147f54c6af4"],
+Cell[15454, 401, 210, 3, 50, "Text",ExpressionUUID->"99bb0706-48a4-4941-adb7-76df53d067ad"],
+Cell[15667, 406, 827, 21, 50, "Input",ExpressionUUID->"fe9fbae2-deba-4b82-a505-6699b8a1bf5a"],
+Cell[16497, 429, 243, 4, 38, "Text",ExpressionUUID->"19c68dce-8128-4fcc-a363-e1ba074e4eb3"],
+Cell[16743, 435, 495, 9, 56, "Text",ExpressionUUID->"14efc068-e37d-4fe2-bee6-352d164e7897"],
+Cell[17241, 446, 201, 5, 38, "Text",ExpressionUUID->"9f840312-fe4a-4b9f-859b-48361dc3435c"],
+Cell[17445, 453, 414, 9, 78, "Text",ExpressionUUID->"d0376ed7-329d-4785-85f7-3b5d4c413ea6"],
+Cell[17862, 464, 429, 10, 170, "Text",ExpressionUUID->"50124e80-290c-4a49-b29f-4d7e07624be2"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
